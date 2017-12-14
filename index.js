@@ -12,10 +12,11 @@ class SubRequests {
     // only add this request if this requestId is not already in the pipe
     const existing = this.requests.find(item => item.requestId == request.requestId)
     if (existing) return
+
     const defaultOptions = {
       action: action,
       headers: {
-        ( action === "view" ? "Accept" : "Content-Type") : "application/vnd.api+json"
+        [( action === "view" ? "Accept" : "Content-Type")]  : "application/vnd.api+json"
       }
     }
     const subrequest = Object.assign(defaultOptions, request)
@@ -25,15 +26,15 @@ class SubRequests {
     }
     // generate automatically a requestId if needed
     if (subrequest.requestId === undefined) {
-      subrequest.requestId = (requestId === undefined) ? ++this.autoincrementedId : requestId
+      subrequest.requestId = (requestId === undefined) ? (++this.autoincrementedId) : requestId
     }
 
-    if (body !=== "") {
-      subrequests.body = body
+    if (body !== "") {
+      subrequest.body = body
     }
 
     if (waitFor.length > 0) {
-      subrequests.waitFor = waitFor
+      subrequest.waitFor = waitFor
     }
 
     this.requests.push(subrequest)
