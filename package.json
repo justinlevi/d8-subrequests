@@ -1,6 +1,6 @@
 {
   "name": "d8-subrequests",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Client for subrequests Drupal 8 module : executes several JSON-API requests in a single http request",
   "main": "dist/index.js",
   "files": [
@@ -20,7 +20,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nyl-auster/d8-subrequests"
+    "url": "https://github.com/justinlevi/d8-subrequests"
   },
   "author": "yann.boisselier@gmail.com",
   "license": "ISC",
