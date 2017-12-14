@@ -8,7 +8,7 @@ class SubRequests {
     this.requests = []
   }
 
-  add (request, action = "view", body = "", waitFor = []) {
+  add (request, requestId, action = "view", body = "", waitFor = []) {
     // only add this request if this requestId is not already in the pipe
     const existing = this.requests.find(item => item.requestId == request.requestId)
     if (existing) return
@@ -25,7 +25,7 @@ class SubRequests {
     }
     // generate automatically a requestId if needed
     if (subrequest.requestId === undefined) {
-      subrequest.requestId = ++this.autoincrementedId
+      subrequest.requestId = (requestId === undefined) ? ++this.autoincrementedId : requestId
     }
 
     if (body !=== "") {
